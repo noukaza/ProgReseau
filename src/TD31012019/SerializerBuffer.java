@@ -30,17 +30,16 @@ public class SerializerBuffer {
 
     void writeString(String s){
         ByteBuffer b2 = CHARSET.encode(s);
-        int n = b2.remaining();
-        byteBuffer.put(CHARSET.encode(Integer.toString(n)));
-        byteBuffer.putChar(':');
+        int size = b2.remaining();
+        byteBuffer.putInt(size);
         byteBuffer.put(b2);
     }
 
     String readString(){
+        int size = byteBuffer.getInt();
         int lim = byteBuffer.limit();
-        int t = byteBuffer.getInt();
-        byteBuffer.limit(byteBuffer.position()+t);
-        String s =CHARSET.decode(byteBuffer).toString();
+        byteBuffer.limit(byteBuffer.position()+size);
+        String s = CHARSET.decode(byteBuffer).toString();
         byteBuffer.limit(lim);
         return s;
     }
