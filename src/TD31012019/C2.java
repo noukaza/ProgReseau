@@ -1,6 +1,6 @@
 package TD31012019;
 
-public class C2 implements  MySerialisable{
+public class C2 implements MySerialisable {
     private C1 c1;
     private C2 c2;
 
@@ -24,7 +24,7 @@ public class C2 implements  MySerialisable{
 
     @Override
     public void writeToBuff(SerializerBuffer ms) {
-
+        //TODO implement
     }
 
     @Override
