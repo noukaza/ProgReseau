@@ -1,4 +1,6 @@
-package TP3;
+package TP3.util;
+
+import TP3.client.Client;
 
 import java.io.IOException;
 import java.nio.ByteBuffer;

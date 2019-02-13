@@ -1,4 +1,4 @@
-package TP3;
+package TP3.server;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;
@@ -10,7 +10,6 @@ import java.nio.channels.Selector;
 import java.nio.channels.ServerSocketChannel;
 import java.nio.channels.SocketChannel;
 import java.nio.charset.Charset;
-
 
 public class Server {
     ServerSocketChannel serversocket;
@@ -24,8 +23,6 @@ public class Server {
         this.serversocket.configureBlocking(false);
         this.select = Selector.open();
         serversocket.register(select, SelectionKey.OP_ACCEPT);
-
-
     }
 
     public void accept() throws IOException {
@@ -36,7 +33,6 @@ public class Server {
         System.out.println("nouvelle connexion" + sc);
 
     }
-
 
     public void repeat(SelectionKey k) throws IOException {
         ByteBuffer bb = ByteBuffer.allocateDirect(512);
@@ -57,8 +53,6 @@ public class Server {
                 SocketChannel sc1 = (SocketChannel) k1.channel();
                 bb.rewind();
                 sc1.write(bb);
-
-
             }
         }
         bb.clear();
@@ -78,10 +72,4 @@ public class Server {
             select.selectedKeys().clear();
         }
     }
-
-    public static void main(String argc[]) throws IOException {
-        Server s = new Server(2020);
-        s.start();
-    }
-
 }
