@@ -20,6 +20,8 @@ public class Client {
         this.socketChannel.connect(socketAddress);
         System.out.println(this.socketChannel.isConnected());
         this.isConnected = true;
+
+        new RepeatNetwork(this.socketChannel,this).run();
     }
 
     public boolean isConnected() {
