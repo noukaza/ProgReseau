@@ -28,9 +28,9 @@ public class C2 implements MySerialisable {
     }
 
     @Override
-    public void readFromBuff(SerializerBuffer buffer) {
-        c2.c1 = new C1();
-        c2.c1.serialize(buffer);
+    public  void readFromBuff(SerializerBuffer buffer) {
+        this.c2.c1 = new C1();
+        this.c2.c1.serialize(buffer);
         if (buffer.getByteBuffer().get() != 0) {
             c2 = new C2();
             c2.readFromBuff(buffer);
