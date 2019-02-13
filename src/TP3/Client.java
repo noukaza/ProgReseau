@@ -11,15 +11,15 @@ public class Client {
     private boolean isConnected;
 
     public Client(String adresse, int port) throws IOException {
-        socketChannel = SocketChannel.open();
+        this.socketChannel = SocketChannel.open();
         SocketAddress socketAddress = new InetSocketAddress(
                 InetAddress.getByName(adresse),
                 port
         );
-        System.out.println(socketChannel.isConnected());
-        socketChannel.connect(socketAddress);
-        System.out.println(socketChannel.isConnected());
-        isConnected = true;
+        System.out.println(this.socketChannel.isConnected());
+        this.socketChannel.connect(socketAddress);
+        System.out.println(this.socketChannel.isConnected());
+        this.isConnected = true;
     }
 
     public boolean isConnected() {
