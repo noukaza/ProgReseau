@@ -1,5 +1,6 @@
 package TP3;
 
+import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.channels.Channels;
 import java.nio.channels.ReadableByteChannel;
@@ -27,8 +28,8 @@ public class RepeatKeyboard implements Runnable{
                 this.byteBuffer.flip();
                 socketChannel.write(byteBuffer);
                 byteBuffer.clear();
-            }catch (IOExeption e){
-
+            } catch (IOException e) {
+                e.printStackTrace();
             }
         }
     }
