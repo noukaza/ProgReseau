@@ -4,7 +4,7 @@ import java.io.IOException;
 
 public class main {
     public static void main(String[] args) throws IOException {
-        new Client("access759336177.webspace-data.io",22);
+        Client client = new Client("127.0.01",2020);
     }
 }
 

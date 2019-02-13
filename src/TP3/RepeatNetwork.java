@@ -23,9 +23,10 @@ public class RepeatNetwork implements Runnable{
             try {
                 this.socketChannel.read(this.byteBuffer);
                 this.byteBuffer.flip();
+                System.out.println(this.byteBuffer.limit());
                 Charset charset = Charset.forName("UTF-8");
                 CharBuffer charBuffer = charset.decode(byteBuffer);
-                System.out.println(charBuffer.toString());
+                System.out.println("msg: "+ charBuffer.toString());
             } catch (IOException e) {
                 this.client.setConnected(false);
                 System.out.println("Client is not here !");
