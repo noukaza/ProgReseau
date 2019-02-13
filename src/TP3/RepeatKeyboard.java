@@ -22,7 +22,14 @@ public class RepeatKeyboard implements Runnable{
     @Override
     public void run() {
         while (client.isConnected()){
+            try {
+                this.readableByteChannel.read(this.byteBuffer);
+                this.byteBuffer.flip();
+                socketChannel.write(byteBuffer);
+                byteBuffer.clear();
+            }catch (IOExeption e){
 
+            }
         }
     }
 }
