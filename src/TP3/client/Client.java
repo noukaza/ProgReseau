@@ -1,6 +1,7 @@
 package TP3.client;
 
 import TP3.util.RepeatKeyboard;
+import TP3.util.RepeatNetwork;
 
 import java.io.IOException;
 import java.net.InetAddress;
@@ -22,8 +23,8 @@ public class Client {
         this.socketChannel.connect(socketAddress);
         System.out.println(this.socketChannel.isConnected());
         this.isConnected = true;
-        new RepeatKeyboard(this.socketChannel,this).run();
-        //new RepeatNetwork(this.socketChannel,this).run();
+        //new RepeatKeyboard(this.socketChannel,this).run();
+        new RepeatNetwork(this.socketChannel,this).run();
     }
 
     public boolean isConnected() {
