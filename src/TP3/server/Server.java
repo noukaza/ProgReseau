@@ -16,7 +16,7 @@ public class Server {
     Selector select;
     ByteBuffer bytebuff;
 
-    Server(int port) throws IOException {
+    public Server(int port) throws IOException {
         this.serversocket = ServerSocketChannel.open();
         SocketAddress sa = new InetSocketAddress(port);
         this.serversocket.bind(sa);

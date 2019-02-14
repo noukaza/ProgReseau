@@ -26,6 +26,7 @@ public class RepeatNetwork implements Runnable{
                 this.socketChannel.read(this.byteBuffer);
 
                 if(client.getSocketChannel().read(byteBuffer) < 0){
+                    System.out.println("Deco -1");
                     client.getSocketChannel().close();
                     client.setConnected(false);
                     return;
@@ -38,6 +39,7 @@ public class RepeatNetwork implements Runnable{
 
                 System.out.println("msg: "+ charBuffer.toString());
 
+                this.byteBuffer.clear();
             } catch (IOException e) {
                 this.client.setConnected(false);
                 System.out.println("Client is not here !");
