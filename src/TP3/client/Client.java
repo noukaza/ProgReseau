@@ -33,4 +33,8 @@ public class Client {
     public void setConnected(boolean connected) {
         isConnected = connected;
     }
+
+    public SocketChannel getSocketChannel() {
+        return socketChannel;
+    }
 }
